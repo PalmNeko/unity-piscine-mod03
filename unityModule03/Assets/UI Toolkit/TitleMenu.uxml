@@ -1,0 +1,24 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/TitleMenu.uss?fileID=7433441132597879392&amp;guid=f88f5e091881d7d47bc07cbcd153df46&amp;type=3#TitleMenu" />
+    <ui:VisualElement name="RootCanvas" class="root-area">
+        <ui:VisualElement name="QualityPadding" class="quaulity-padding">
+            <ui:VisualElement name="CanvasArea" class="canvas-area">
+                <ui:VisualElement name="Row" class="row" />
+                <ui:VisualElement name="Row" class="row">
+                    <ui:VisualElement name="Column" class="column" />
+                    <ui:VisualElement name="Column" class="column">
+                        <ui:VisualElement name="Menu" class="menu align-bottom">
+                            <ui:VisualElement name="Item">
+                                <ui:Button text="Play" name="Play" class="title-button" />
+                            </ui:VisualElement>
+                            <ui:VisualElement name="Item">
+                                <ui:Button text="Quit" name="Quit" class="title-button" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Column" class="column" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
