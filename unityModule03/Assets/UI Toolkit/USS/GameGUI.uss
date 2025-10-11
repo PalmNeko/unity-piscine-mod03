@@ -1,0 +1,23 @@
+.root {
+    flex-grow: 1;
+}
+
+.quaulity-padding {
+    flex-grow: 1;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+.row {
+    flex-grow: 1;
+    flex-direction: row;
+}
+
+.column {
+    flex-direction: row;
+}
+
+.footer {
+    flex-grow: 1;
+    max-height: 100px;
+}

@@ -1,0 +1,6 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/BaseHP.uss?fileID=7433441132597879392&amp;guid=676f360a91603b2458e4e1c26419ebc3&amp;type=3#BaseHP" />
+    <ui:VisualElement name="HPBar" class="hp-bar">
+        <ui:VisualElement name="HPValue" class="hp-value" />
+    </ui:VisualElement>
+</ui:UXML>

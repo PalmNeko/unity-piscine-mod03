@@ -1,0 +1,25 @@
+.hp-bar {
+    background-color: rgb(255, 255, 255);
+    border-left-width: 1px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    margin-top: 1px;
+    margin-right: 1px;
+    margin-bottom: 1px;
+    margin-left: 1px;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+.hp-value {
+    width: 80%;
+    min-width: 0%;
+    max-width: 100%;
+    background-color: rgb(136, 255, 136);
+    background-size: 80% 100%;
+}
