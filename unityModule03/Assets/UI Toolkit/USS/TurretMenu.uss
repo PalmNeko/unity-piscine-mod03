@@ -1,7 +1,5 @@
 .root {
     background-color: rgb(255, 255, 255);
-    height: 100px;
-    width: 100px;
     border-left-color: rgb(0, 0, 0);
     border-right-color: rgb(0, 0, 0);
     border-top-color: rgb(0, 0, 0);
@@ -14,16 +12,20 @@
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
-    flex-shrink: 0;
+    flex-shrink: 1;
     max-width: 100px;
     max-height: 100px;
+    flex-grow: 1;
 }
 
 .turret-image {
     flex-grow: 1;
-    flex-direction: column-reverse;
     justify-content: flex-start;
     font-size: 12px;
+    -unity-background-scale-mode: scale-to-fit;
+    flex-shrink: 0;
+    flex-direction: column-reverse;
+    background-size: contain;
 }
 
 .info {

@@ -12,8 +12,9 @@
     border-right-color: rgb(0, 0, 0);
     border-top-color: rgb(0, 0, 0);
     border-bottom-color: rgb(0, 0, 0);
-    flex-direction: row;
     flex-grow: 1;
+    flex-direction: row;
+    width: 200px;
 }
 
 .hp-value {
