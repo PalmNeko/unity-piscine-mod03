@@ -3,29 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(Attacker))]
-[RequireComponent(typeof(Health))]
 [SelectionBase]
 public class EnemyController : MonoBehaviour
 {
-	public Transform target;
-	public float speed = 1;
+	public EnemySpec spec;
 	public Health health;
-	public List<Health> targetHealths;
+	public BaseController target;
 
 	private Rigidbody2D rb;
 	private Attacker attacker;
 
-	public void Initialize(Transform target = null, List<Health>targetHealths = null, float speed = 1.0f)
+	public void Initialize(BaseController target)
 	{
 		this.target = target;
-		this.speed = speed;
-		this.targetHealths = targetHealths;
 	}
 
 	void OnEnable()
 	{
-		health = GetComponent<Health>();
+		health ??= new Health();
 		if (health != null)
 			health.onZeroHP.AddListener(Defeat);
 	}
@@ -39,40 +34,41 @@ public class EnemyController : MonoBehaviour
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
-		attacker = GetComponent<Attacker>();
-		health = GetComponent<Health>();
+		attacker = new Attacker();
+		attacker.power = 1f;
+		health ??= new Health();
 	}
 
 	void FixedUpdate() {
-		MoveToClose(target);
+		MoveToClose(target.transform);
 	}
 
 	void MoveToClose(Transform target)
 	{
-		if (target == null)
+		if (target == null || spec == null)
 			return;
-		float step = speed * Time.deltaTime;
+		float step = spec.speed * Time.deltaTime;
 		transform.position = Vector2.MoveTowards(transform.position, target.position, step);
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (TryGetHealth(other.gameObject, out var health))
+		if (TryGetHealth(other.gameObject, out var theBase))
         {
-			attacker.Attack(health);
+			attacker.Attack(theBase.HP);
 			Destroy(this.gameObject);
         }
 	}
 
-	public bool TryGetHealth(GameObject obj, out Health health)
+	public bool TryGetHealth(GameObject obj, out BaseController theBase)
 	{
-		health = null;
-		if (targetHealths == null)
+		theBase = null;
+		if (target == null)
 			return false;
-		health = obj.GetComponent<Health>();
-		if (health == null)
+		theBase = obj.GetComponent<BaseController>();
+		if (theBase == null)
 			return false;
-		return targetHealths.Contains(health);
+		return target == theBase;
 	}
 
 	public void Defeat(Health health)

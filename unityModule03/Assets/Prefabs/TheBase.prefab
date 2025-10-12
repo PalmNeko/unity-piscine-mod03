@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9222117617510164121}
   - component: {fileID: 2239638907050183362}
-  - component: {fileID: 3919331685375943952}
   - component: {fileID: 8219293315203022871}
   m_Layer: 0
   m_Name: TheBase
@@ -47,7 +46,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e981ddb0dcbf5c1b8e524fd578618d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: {fileID: 0}
+  HP:
+    HP: 5
+    onZeroHP:
+      m_PersistentCalls:
+        m_Calls: []
+    onTakeDamage:
+      m_PersistentCalls:
+        m_Calls: []
   onGameOver:
     m_PersistentCalls:
       m_Calls:
@@ -58,49 +64,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &3919331685375943952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6314977127017488353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7c808fd23ae4f536af5480af38d6590, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HP: 5
-  onZeroHP:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2239638907050183362}
-        m_TargetAssemblyTypeName: BaseController, Assembly-CSharp
-        m_MethodName: InvokeGameOver
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onTakeDamage:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2239638907050183362}
-        m_TargetAssemblyTypeName: BaseController, Assembly-CSharp
-        m_MethodName: OnTakeDamage
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

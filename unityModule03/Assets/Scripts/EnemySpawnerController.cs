@@ -7,9 +7,8 @@ using System.Collections.Generic;
 public class EnemySpawnerController : MonoBehaviour
 {
 	public EnemyController enemy;
-	public Transform target;
+	public BaseController target;
 	public float spawnDelay = 1;
-	public List<Health> targetHealths;
 
 	private DateTime nextSpawn;
 	private bool canSpawn = true;
@@ -39,7 +38,7 @@ public class EnemySpawnerController : MonoBehaviour
 		if (canSpawn == false)
 			return ;
 		EnemyController newEnemy = Instantiate(enemy, transform);
-		newEnemy.Initialize(target, targetHealths, newEnemy.speed);
+		newEnemy.Initialize(target);
 	}
 
 	private DateTime GetNextSpawnDateTime()

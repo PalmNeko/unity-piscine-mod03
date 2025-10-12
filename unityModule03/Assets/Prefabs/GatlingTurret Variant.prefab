@@ -16,6 +16,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5055785664778244289, guid: c1f0719edad8102879de387d563f3f7f, type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6382494093359069184, guid: c1f0719edad8102879de387d563f3f7f, type: 3}
+      propertyPath: spec
+      value: 
+      objectReference: {fileID: 11400000, guid: 362e198871b5af34784f6e57537efe62, type: 2}
     - target: {fileID: 6382494093359069184, guid: c1f0719edad8102879de387d563f3f7f, type: 3}
       propertyPath: coolDown
       value: 0.1
@@ -72,7 +80,8 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1283552999, guid: 6e342d4cb5ab3ed54a97fa81c1170232, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6546117658488826472, guid: c1f0719edad8102879de387d563f3f7f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

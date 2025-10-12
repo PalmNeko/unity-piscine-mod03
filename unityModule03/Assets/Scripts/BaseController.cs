@@ -1,13 +1,12 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(Health))]
 [SelectionBase]
 public class BaseController : MonoBehaviour
 {
 
     [SerializeField]
-    private Health HP;
+    public Health HP;
 
     [Header("Events")]
     [ReadOnly]
@@ -15,12 +14,14 @@ public class BaseController : MonoBehaviour
 
     void OnEnable()
     {
+        HP ??= new Health();
         HP.onZeroHP.AddListener(InvokeGameOver);
         HP.onTakeDamage.AddListener(OnTakeDamage);
     }
 
     void OnDisable()
     {
+        HP ??= new Health();
         HP.onZeroHP.RemoveListener(InvokeGameOver);
         HP.onTakeDamage.RemoveListener(OnTakeDamage);
     }

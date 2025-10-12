@@ -3,28 +3,45 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-[RequireComponent(typeof(Attacker))]
 [RequireComponent(typeof(CircleCollider2D))]
 [SelectionBase]
 public class TurretController : MonoBehaviour
 {
     public BulletController bullet;
-    public float coolDown = 1.0f;
-    public float shotRange = 0.5f;
+    public TurretSpec spec;
     public string targetTag;
     public CircleCollider2D detectCircleRange;
 
     private Attacker attacker;
-    private List<Health> shotRangeEnemies;
+    private List<EnemyController> shotRangeEnemies;
     private DateTime nextShotDateTime;
+
+    void OnValidate()
+    {
+        AssignObject();
+    }
+
+    private void AssignObject()
+    {
+        if (spec == null)
+            return;
+        attacker = new Attacker
+        {
+            power = spec.damage
+        };
+
+        detectCircleRange = GetComponent<CircleCollider2D>();
+        if (detectCircleRange.radius != spec.range)
+            Debug.LogWarning($"Changed CircleCollider2D.radius {detectCircleRange.radius} -> {spec.range}");
+        detectCircleRange.radius = spec.range;
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        attacker = GetComponent<Attacker>();
-        detectCircleRange = GetComponent<CircleCollider2D>();
+        AssignObject();
         nextShotDateTime = GetNextShotDateTime();
-        shotRangeEnemies = new List<Health>();
+        shotRangeEnemies = new List<EnemyController>();
     }
 
     // Update is called once per frame
@@ -43,9 +60,9 @@ public class TurretController : MonoBehaviour
             return ;
         if (other.gameObject.tag == targetTag)
         {
-            Health health = other.gameObject.GetComponent<Health>();
-            if (health != null)
-                shotRangeEnemies.Add(health);
+            EnemyController enemy = other.gameObject.GetComponent<EnemyController>();
+            if (enemy != null)
+                shotRangeEnemies.Add(enemy);
         }
     }
 
@@ -55,19 +72,19 @@ public class TurretController : MonoBehaviour
             return ;
         if (other.gameObject.tag == targetTag)
         {
-            Health health = other.gameObject.GetComponent<Health>();
-            if (health != null)
-                shotRangeEnemies.RemoveAll((Health pivot) => pivot == health);
+            EnemyController enemy = other.gameObject.GetComponent<EnemyController>();
+            if (enemy != null)
+                shotRangeEnemies.RemoveAll((EnemyController pivot) => pivot == enemy);
         }
     }
 
-    Health GetClosestEnemy()
+    EnemyController GetClosestEnemy()
     {
-        Health closestEnemy = null;
+        EnemyController closestEnemy = null;
         float closestDistance = Mathf.Infinity;
         if (shotRangeEnemies == null)
             return null;
-        foreach (Health shotRangeEnemy in shotRangeEnemies)
+        foreach (EnemyController shotRangeEnemy in shotRangeEnemies)
         {
             float distance;
             distance = Vector3.Distance(transform.position, shotRangeEnemy.transform.position);
@@ -82,7 +99,7 @@ public class TurretController : MonoBehaviour
 
     DateTime GetNextShotDateTime()
     {
-        return DateTime.Now.AddSeconds(coolDown);
+        return DateTime.Now.AddSeconds(spec.cooldown);
     }
 
     bool CanShot()
@@ -95,10 +112,10 @@ public class TurretController : MonoBehaviour
     
     void Shot()
     {
-        Health closestEnemyHealth = GetClosestEnemy();
-        if (closestEnemyHealth == null)
+        EnemyController closestEnemy = GetClosestEnemy();
+        if (closestEnemy == null)
             return;
         BulletController newBullet = Instantiate(bullet, transform);
-        newBullet.Initialize(closestEnemyHealth, newBullet.speed, attacker);
+        newBullet.Initialize(closestEnemy, newBullet.speed, attacker);
     }
 }

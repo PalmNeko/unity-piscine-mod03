@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Health : MonoBehaviour
+[System.Serializable]
+public class Health
 {
     public float HP = 5.0f;
 

@@ -1,6 +1,6 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:Template name="TurretCard" src="project://database/Assets/UI%20Toolkit/UXML/TurretCard.uxml?fileID=9197481963319205126&amp;guid=8c3bf489c1539384fa7a69841759b316&amp;type=3#TurretCard" />
     <ui:Template name="HPBar" src="project://database/Assets/UI%20Toolkit/UXML/HPBar.uxml?fileID=9197481963319205126&amp;guid=ca22e655b03615b48878e3403f4344ad&amp;type=3#HPBar" />
+    <ui:Template name="TurretCard" src="project://database/Assets/UI%20Toolkit/UXML/TurretCard.uxml?fileID=9197481963319205126&amp;guid=8c3bf489c1539384fa7a69841759b316&amp;type=3#TurretCard" />
     <Style src="project://database/Assets/UI%20Toolkit/USS/GameGUI.uss?fileID=7433441132597879392&amp;guid=f278bdeaf59a82946844764e17b4cb5c&amp;type=3#GameGUI" />
     <ui:VisualElement name="Root" class="root">
         <ui:VisualElement name="QuaulityPadding" class="quaulity-padding">
@@ -11,9 +11,9 @@
                         <ui:Instance template="HPBar" name="TemplateContainer" style="width: 200%;" />
                     </ui:VisualElement>
                     <ui:VisualElement name="Column" class="column" style="flex-direction: row;">
-                        <ui:Instance template="TurretCard" data-source="project://database/Assets/UI%20Toolkit/ScriptableObjects/BasicTurretSpec.asset?fileID=11400000&amp;guid=b4123177e4969a34294d588a665fb6b4&amp;type=2#BasicTurretSpec" />
-                        <ui:Instance template="TurretCard" data-source="project://database/Assets/UI%20Toolkit/ScriptableObjects/GatlingTurretSpec.asset?fileID=11400000&amp;guid=362e198871b5af34784f6e57537efe62&amp;type=2#GatlingTurretSpec" />
-                        <ui:Instance template="TurretCard" data-source="project://database/Assets/UI%20Toolkit/ScriptableObjects/LauncherTurretSpec.asset?fileID=11400000&amp;guid=352eb2a5f369f044a9c0a37b7108f858&amp;type=2#LauncherTurretSpec" />
+                        <ui:Instance template="TurretCard" data-source="project://database/Assets/ScriptableObjects/BasicTurretSpec.asset?fileID=11400000&amp;guid=9545a94111bbcf920a3c31c87c1bcd22&amp;type=2#BasicTurretSpec" />
+                        <ui:Instance template="TurretCard" data-source="project://database/Assets/ScriptableObjects/GatlingTurretSpec.asset?fileID=11400000&amp;guid=362e198871b5af34784f6e57537efe62&amp;type=2#GatlingTurretSpec" />
+                        <ui:Instance template="TurretCard" data-source="project://database/Assets/ScriptableObjects/LauncherTurretSpec.asset?fileID=11400000&amp;guid=352eb2a5f369f044a9c0a37b7108f858&amp;type=2#LauncherTurretSpec" />
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>

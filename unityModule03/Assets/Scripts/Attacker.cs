@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Attacker : MonoBehaviour
+public class Attacker
 {
     public float power = 1.0f;
 

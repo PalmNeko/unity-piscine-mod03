@@ -184,7 +184,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7348811411292657956}
-  - component: {fileID: 6546117658488826472}
   - component: {fileID: 6382494093359069184}
   - component: {fileID: 5055785664778244289}
   m_Layer: 0
@@ -210,19 +209,6 @@ Transform:
   - {fileID: 479538125652765167}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6546117658488826472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7640748132443447047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cfad3b3f17aab4508f0d860c7a785e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  power: 0.2
 --- !u!114 &6382494093359069184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,8 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 2272127595016849749, guid: 8e3129283a48d52beaaa99bf63a222f0, type: 3}
-  coolDown: 0.3
-  shotRange: 0.5
+  spec: {fileID: 11400000, guid: 9545a94111bbcf920a3c31c87c1bcd22, type: 2}
   targetTag: Enemy
   detectCircleRange: {fileID: 5055785664778244289}
 --- !u!58 &5055785664778244289

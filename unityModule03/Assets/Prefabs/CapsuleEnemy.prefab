@@ -99,8 +99,6 @@ GameObject:
   - component: {fileID: 534772039122532301}
   - component: {fileID: -3335339058249657760}
   - component: {fileID: -5457247439415158090}
-  - component: {fileID: 1029763772061514532}
-  - component: {fileID: 1682841145691649604}
   - component: {fileID: 1009814574020251517}
   m_Layer: 0
   m_Name: CapsuleEnemy
@@ -134,7 +132,7 @@ SortingGroup:
   m_GameObject: {fileID: 3692000815807917564}
   m_Enabled: 1
   m_SortingLayerID: -1931237003
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_SortAtRoot: 0
 --- !u!50 &-3335339058249657760
@@ -176,41 +174,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0083ede7cae829118b306cf8db6f1729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spec: {fileID: 11400000, guid: 606c1633cf49d183badc922e4c88fa43, type: 2}
+  health:
+    HP: 3
+    onZeroHP:
+      m_PersistentCalls:
+        m_Calls: []
+    onTakeDamage:
+      m_PersistentCalls:
+        m_Calls: []
   target: {fileID: 0}
-  speed: 1
-  targetHealths: []
---- !u!114 &1029763772061514532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3692000815807917564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cfad3b3f17aab4508f0d860c7a785e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  power: 1
---- !u!114 &1682841145691649604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3692000815807917564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7c808fd23ae4f536af5480af38d6590, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HP: 3
-  onZeroHP:
-    m_PersistentCalls:
-      m_Calls: []
-  onTakeDamage:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!70 &1009814574020251517
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

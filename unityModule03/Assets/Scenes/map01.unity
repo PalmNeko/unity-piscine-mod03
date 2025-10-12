@@ -1685,6 +1685,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 323676678}
     m_Modifications:
+    - target: {fileID: 322347307969413194, guid: 10ab10d513b13f74da19c223cb2d9281, type: 3}
+      propertyPath: power
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 446528126902817314, guid: 10ab10d513b13f74da19c223cb2d9281, type: 3}
+      propertyPath: spec
+      value: 
+      objectReference: {fileID: 11400000, guid: 362e198871b5af34784f6e57537efe62, type: 2}
+    - target: {fileID: 1767817053478058723, guid: 10ab10d513b13f74da19c223cb2d9281, type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3794332753591547173, guid: 10ab10d513b13f74da19c223cb2d9281, type: 3}
       propertyPath: m_Name
       value: GatlingTurret Variant

@@ -29,6 +29,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6382494093359069184, guid: c1f0719edad8102879de387d563f3f7f, type: 3}
+      propertyPath: spec
+      value: 
+      objectReference: {fileID: 11400000, guid: 352eb2a5f369f044a9c0a37b7108f858, type: 2}
+    - target: {fileID: 6382494093359069184, guid: c1f0719edad8102879de387d563f3f7f, type: 3}
       propertyPath: coolDown
       value: 0.5
       objectReference: {fileID: 0}

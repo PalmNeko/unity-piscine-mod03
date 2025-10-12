@@ -4,13 +4,13 @@ using UnityEngine;
 [SelectionBase]
 public class BulletController : MonoBehaviour
 {
-    public Health target;
+    public EnemyController target;
     public float speed = 1;
 
 	private Rigidbody2D rb;
 	private Attacker attacker;
 
-	public void Initialize(Health target, float speed, Attacker attacker)
+	public void Initialize(EnemyController target, float speed, Attacker attacker)
 	{
 		this.target = target;
         this.speed = speed;
@@ -46,7 +46,7 @@ public class BulletController : MonoBehaviour
             return;
         if (other.gameObject == target.gameObject)
         {
-            attacker.Attack(target);
+            attacker.Attack(target.health);
             Destroy(this.gameObject);
         }
     }
