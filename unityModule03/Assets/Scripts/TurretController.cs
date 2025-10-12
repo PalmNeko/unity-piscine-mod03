@@ -32,8 +32,10 @@ public class TurretController : MonoBehaviour
 
         detectCircleRange = GetComponent<CircleCollider2D>();
         if (detectCircleRange.radius != spec.range)
+        {
+            detectCircleRange.radius = spec.range;
             Debug.LogWarning($"Changed CircleCollider2D.radius {detectCircleRange.radius} -> {spec.range}");
-        detectCircleRange.radius = spec.range;
+        }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

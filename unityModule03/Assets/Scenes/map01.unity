@@ -2141,6 +2141,10 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6039822601747119121, guid: 863bf18b153433025afa8161e5370986, type: 3}
+      propertyPath: m_Radius
+      value: 3.15
+      objectReference: {fileID: 0}
     - target: {fileID: 7458802339996402190, guid: 863bf18b153433025afa8161e5370986, type: 3}
       propertyPath: m_FlipX
       value: 1
