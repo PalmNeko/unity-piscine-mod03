@@ -7,5 +7,6 @@ public class TurretSpec : ScriptableObject
 	public float damage = 1f;
 	public float cost = 1f;
 	public float range = 1f;
+	public float bulletSpeed = 5.0f;
 	public Sprite icon;
 }

@@ -5,22 +5,12 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     public EnemyController target;
-    public float speed = 1;
+    public TurretSpec turretSpec;
 
-	private Rigidbody2D rb;
-	private Attacker attacker;
-
-	public void Initialize(EnemyController target, float speed, Attacker attacker)
+	public void Initialize(EnemyController target, TurretSpec turretSpec)
 	{
 		this.target = target;
-        this.speed = speed;
-        this.attacker = attacker;
-	}
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-	{
-		rb = GetComponent<Rigidbody2D>();
+        this.turretSpec = turretSpec;
 	}
 
 	void FixedUpdate() {
@@ -36,14 +26,14 @@ public class BulletController : MonoBehaviour
     {
         if (target == null)
             return;
-        float step = speed * Time.deltaTime;
+        float step = turretSpec.bulletSpeed * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, target.transform.position, step);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (attacker == null)
-            return;
+        Attacker attacker = new Attacker();
+        attacker.power = turretSpec.damage;
         if (other.gameObject == target.gameObject)
         {
             attacker.Attack(target.health);

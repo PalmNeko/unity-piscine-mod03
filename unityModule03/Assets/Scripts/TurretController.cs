@@ -116,6 +116,6 @@ public class TurretController : MonoBehaviour
         if (closestEnemy == null)
             return;
         BulletController newBullet = Instantiate(bullet, transform);
-        newBullet.Initialize(closestEnemy, newBullet.speed, attacker);
+        newBullet.Initialize(closestEnemy, spec);
     }
 }
