@@ -1,6 +1,6 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/USS/TurretMenu.uss?fileID=7433441132597879392&amp;guid=7630b854467946644aab0ccfaa41b93a&amp;type=3#TurretMenu" />
-    <ui:VisualElement name="TemplateTurret" data-source="project://database/Assets/ScriptableObjects/BasicTurretSpec.asset?fileID=11400000&amp;guid=9545a94111bbcf920a3c31c87c1bcd22&amp;type=2#BasicTurretSpec" class="root" style="flex-direction: row; min-width: 100px; min-height: 100px;">
+    <ui:VisualElement name="TemplateTurret" class="root" style="flex-direction: row; min-width: 100px; min-height: 100px;">
         <ui:VisualElement name="TurretImage" class="turret-image">
             <ui:VisualElement name="Cooldown" class="info">
                 <ui:Label text="🧊" class="text" />

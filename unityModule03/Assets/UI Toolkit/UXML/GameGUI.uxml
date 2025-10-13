@@ -27,5 +27,4 @@
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:GroupBox />
 </ui:UXML>
