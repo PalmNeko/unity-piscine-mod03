@@ -4,6 +4,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public BaseController baseController;
+    public UIManager ui;
 
     void OnEnable()
     {
@@ -26,5 +27,18 @@ public class GameManager : MonoBehaviour
         EnemyController[] enemyControllers = GameObject.FindObjectsByType<EnemyController>(FindObjectsSortMode.None);
         foreach (EnemyController enemyController in enemyControllers)
             Destroy(enemyController.gameObject);
+    }
+
+    void Update()
+    {
+        UpdateGUI();
+    }
+
+    private void UpdateGUI()
+    {
+        if (baseController != null)
+        {
+            ui.SetHP(baseController.HP.HP, baseController.HP.maxHP);
+        }
     }
 }

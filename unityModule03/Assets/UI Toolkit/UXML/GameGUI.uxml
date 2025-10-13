@@ -7,8 +7,16 @@
             <ui:VisualElement name="Row" class="row" />
             <ui:VisualElement name="Footer" class="footer">
                 <ui:VisualElement name="Row" class="row">
-                    <ui:VisualElement name="Column" class="column" style="flex-grow: 1;">
-                        <ui:Instance template="HPBar" name="TemplateContainer" style="width: 200%;" />
+                    <ui:VisualElement name="Column" class="column" style="flex-grow: 1; flex-direction: column;">
+                        <ui:VisualElement name="Row" class="row">
+                            <ui:VisualElement name="Column" class="column" style="flex-grow: 1;">
+                                <ui:Label text="⚡" />
+                                <ui:Label text="123" name="Energy" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="Row" class="row">
+                            <ui:Instance template="HPBar" name="TemplateContainer" />
+                        </ui:VisualElement>
                     </ui:VisualElement>
                     <ui:VisualElement name="Column" class="column" style="flex-direction: row;">
                         <ui:Instance template="TurretCard" data-source="project://database/Assets/ScriptableObjects/BasicTurretSpec.asset?fileID=11400000&amp;guid=9545a94111bbcf920a3c31c87c1bcd22&amp;type=2#BasicTurretSpec" />
@@ -19,4 +27,5 @@
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
+    <ui:GroupBox />
 </ui:UXML>

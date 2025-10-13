@@ -5,6 +5,7 @@ using UnityEngine.Events;
 public class Health
 {
     public float HP = 5.0f;
+    public float maxHP = 5.0f;
 
     [Header("Events")]
     [ReadOnly]

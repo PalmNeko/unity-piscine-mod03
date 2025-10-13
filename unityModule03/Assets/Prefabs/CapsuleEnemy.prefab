@@ -177,6 +177,7 @@ MonoBehaviour:
   spec: {fileID: 11400000, guid: 606c1633cf49d183badc922e4c88fa43, type: 2}
   health:
     HP: 3
+    maxHP: 3
     onZeroHP:
       m_PersistentCalls:
         m_Calls: []

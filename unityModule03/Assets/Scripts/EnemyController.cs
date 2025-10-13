@@ -22,7 +22,11 @@ public class EnemyController : MonoBehaviour
 	{
 		health ??= new Health();
 		if (health != null)
+		{
 			health.onZeroHP.AddListener(Defeat);
+			health.maxHP = spec.maxHP;
+			health.HP = spec.maxHP;
+        }
 	}
 
 	void OnDisable()
@@ -35,7 +39,7 @@ public class EnemyController : MonoBehaviour
 	{
 		rb = GetComponent<Rigidbody2D>();
 		attacker = new Attacker();
-		attacker.power = 1f;
+		attacker.power = spec.damage;
 		health ??= new Health();
 	}
 

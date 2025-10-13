@@ -8,7 +8,6 @@ public class HPBar : MonoBehaviour
     public Color fullColor = Color.green;
     public Color emptyColor = Color.red;
 
-    private float maxHP = 100f;
     private VisualElement hpValue;
 
     private void OnEnable()
@@ -18,18 +17,8 @@ public class HPBar : MonoBehaviour
         hpValue = uiDocument.rootVisualElement.Q<VisualElement>("HPValue");
     }
 
-    public void Initialize(float maxHP, float currentHP = -1f)
+    public void SetHP(float hp, float maxHP)
     {
-        this.maxHP = maxHP;
-        if (currentHP >= 0)
-        {
-            SetHP(currentHP);
-        }
-    }
-
-    public void SetHP(float hp)
-    {
-        maxHP = hp;
         if (hpValue != null)
         {
             float hpRate = hp / maxHP;
