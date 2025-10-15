@@ -921,6 +921,7 @@ GameObject:
   - component: {fileID: 687866129}
   - component: {fileID: 687866128}
   - component: {fileID: 687866130}
+  - component: {fileID: 687866131}
   m_Layer: 5
   m_Name: UIDocument
   m_TagString: Untagged
@@ -976,6 +977,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fullColor: {r: 0, g: 1, b: 0, a: 1}
   emptyColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &687866131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687866127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfc36a75ac811a652bf0276b34665f5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &701498846
 GameObject:
   m_ObjectHideFlags: 0
@@ -1700,14 +1713,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 323676678}
     m_Modifications:
-    - target: {fileID: 446528126902817314, guid: 10ab10d513b13f74da19c223cb2d9281, type: 3}
-      propertyPath: spec
-      value: 
-      objectReference: {fileID: 11400000, guid: 362e198871b5af34784f6e57537efe62, type: 2}
-    - target: {fileID: 1767817053478058723, guid: 10ab10d513b13f74da19c223cb2d9281, type: 3}
-      propertyPath: m_Radius
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3794332753591547173, guid: 10ab10d513b13f74da19c223cb2d9281, type: 3}
       propertyPath: m_Name
       value: GatlingTurret Variant
@@ -2155,10 +2160,6 @@ PrefabInstance:
     - target: {fileID: 1507249687556758984, guid: 863bf18b153433025afa8161e5370986, type: 3}
       propertyPath: m_FlipX
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6039822601747119121, guid: 863bf18b153433025afa8161e5370986, type: 3}
-      propertyPath: m_Radius
-      value: 3.15
       objectReference: {fileID: 0}
     - target: {fileID: 7458802339996402190, guid: 863bf18b153433025afa8161e5370986, type: 3}
       propertyPath: m_FlipX

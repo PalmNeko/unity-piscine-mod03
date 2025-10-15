@@ -8,6 +8,7 @@ using UnityEditor;
 public partial class TurretCardElement : VisualElement
 {
     private TurretSpec _spec;
+    private bool _ui_init = false;
     private VisualElement turretImage;
     private Label price;
     private Label cooldown;
@@ -53,10 +54,9 @@ public partial class TurretCardElement : VisualElement
 
     public void Refresh()
     {
-        if (_uxml == null)
+        if (_uxml == null || _ui_init == true)
             return;
-
-        Clear();
+        _ui_init = true;
         _uxml.CloneTree(this);
 
         price = this.Q<Label>("price");
@@ -64,16 +64,16 @@ public partial class TurretCardElement : VisualElement
         damage = this.Q<Label>("damage");
         turretImage = this.Q("turret-image");
 
-        if (spec != null)
+        if (_spec != null)
         {
             if (price != null)
-                price.text = spec.cost.ToString();
+                price.text = _spec.cost.ToString();
             if (cooldown != null)
-                cooldown.text = spec.cooldown.ToString();
+                cooldown.text = _spec.cooldown.ToString();
             if (damage != null)
-                damage.text = spec.damage.ToString();
+                damage.text = _spec.damage.ToString();
             if (turretImage != null)
-                turretImage.style.backgroundImage = new StyleBackground(spec.icon);
+                turretImage.style.backgroundImage = new StyleBackground(_spec.icon);
         }
         
     }
