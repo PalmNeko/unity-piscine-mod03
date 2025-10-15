@@ -920,6 +920,7 @@ GameObject:
   m_Component:
   - component: {fileID: 687866129}
   - component: {fileID: 687866128}
+  - component: {fileID: 687866130}
   m_Layer: 5
   m_Name: UIDocument
   m_TagString: Untagged
@@ -961,6 +962,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &687866130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687866127}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72074bb6bfa61dd48b115d6c010e06f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fullColor: {r: 0, g: 1, b: 0, a: 1}
+  emptyColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &701498846
 GameObject:
   m_ObjectHideFlags: 0
@@ -4774,6 +4789,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 294189946884612986, guid: ada88d1d3721b914d9c6aa94f0631fdc, type: 3}
+      propertyPath: ui.hpBar
+      value: 
+      objectReference: {fileID: 687866130}
     - target: {fileID: 294189946884612986, guid: ada88d1d3721b914d9c6aa94f0631fdc, type: 3}
       propertyPath: baseController
       value: 

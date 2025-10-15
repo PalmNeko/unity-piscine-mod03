@@ -12,14 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4d3085c47c8c9de5bdf3130973cc686, type: 3}
   m_Name: CapsuleEnemy
   m_EditorClassIdentifier: 
-  health:
-    HP: 3
-    onZeroHP:
-      m_PersistentCalls:
-        m_Calls: []
-    onTakeDamage:
-      m_PersistentCalls:
-        m_Calls: []
+  maxHP: 3
   damage: 1
   speed: 1
   icon: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
