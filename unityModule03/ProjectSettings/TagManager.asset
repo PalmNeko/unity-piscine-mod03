@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
+  - Draggable
   layers:
   - Default
   - TransparentFX
@@ -50,6 +51,12 @@ TagManager:
     locked: 0
   - name: Bullets
     uniqueID: 1891342475
+    locked: 0
+  - name: StaticUI
+    uniqueID: 3489819891
+    locked: 0
+  - name: DynamicUI
+    uniqueID: 3238257191
     locked: 0
   m_RenderingLayers:
   - Default
