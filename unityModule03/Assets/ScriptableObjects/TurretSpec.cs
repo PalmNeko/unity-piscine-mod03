@@ -9,4 +9,5 @@ public class TurretSpec : ScriptableObject
 	public float range = 1f;
 	public float bulletSpeed = 5.0f;
 	public Sprite icon;
+	public TurretController prefab;
 }

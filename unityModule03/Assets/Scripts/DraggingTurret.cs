@@ -5,11 +5,7 @@ public class DraggingTurret : MonoBehaviour
     public TurretSpec spec;
     public SpriteRenderer spriteRenderer;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
+    private TurretReceiver targetReceiver;
 
     // Update is called once per frame
     void Update()
@@ -18,7 +14,10 @@ public class DraggingTurret : MonoBehaviour
         if (Input.GetMouseButton(0))
             UpdateDrag();
         else
+        {
+            PutTurret();
             Destroy(gameObject);
+        }
     }
 
     public void Init(TurretSpec spec)
@@ -40,5 +39,29 @@ public class DraggingTurret : MonoBehaviour
         Vector3 target = Camera.main.ScreenToWorldPoint(mousePosition);
         target.z += 1;
         transform.position = target;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (targetReceiver != null)
+            return;
+        TurretReceiver turretReceiver = other.GetComponent<TurretReceiver>();
+        targetReceiver = turretReceiver;
+    }
+    
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (targetReceiver == null)
+            return;
+        TurretReceiver turretReceiver = other.GetComponent<TurretReceiver>();
+        if (turretReceiver == targetReceiver)
+            targetReceiver = null;
+    }
+    
+    void PutTurret()
+    {
+        if (targetReceiver == null)
+            return;
+        targetReceiver.SetTurret(this);
     }
 }

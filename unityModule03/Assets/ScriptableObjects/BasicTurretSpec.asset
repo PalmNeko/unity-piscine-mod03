@@ -16,4 +16,6 @@ MonoBehaviour:
   damage: 0.2
   cost: 1
   range: 1.5
+  bulletSpeed: 5
   icon: {fileID: -449433560, guid: 6e342d4cb5ab3ed54a97fa81c1170232, type: 3}
+  prefab: {fileID: 6382494093359069184, guid: c1f0719edad8102879de387d563f3f7f, type: 3}

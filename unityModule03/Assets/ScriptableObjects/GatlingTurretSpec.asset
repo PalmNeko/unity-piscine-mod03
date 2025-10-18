@@ -16,5 +16,6 @@ MonoBehaviour:
   damage: 0.1
   cost: 3
   range: 1
+  bulletSpeed: 5
   icon: {fileID: -1283552999, guid: 6e342d4cb5ab3ed54a97fa81c1170232, type: 3}
-  turretPrefab: {fileID: 0}
+  prefab: {fileID: 446528126902817314, guid: 10ab10d513b13f74da19c223cb2d9281, type: 3}
