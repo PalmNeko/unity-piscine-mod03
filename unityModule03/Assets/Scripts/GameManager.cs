@@ -4,18 +4,20 @@ using System;
 [SelectionBase]
 public class GameManager : MonoBehaviour
 {
+    static private GameManager instance;
     public BaseController baseController;
     public float initialEnergy = 0f;
     public float gainEnergy = 1f;
     public float energyCooldown = 1f;
     public UIManager ui;
 
-    private float energy;
+    public float energy;
     private DateTime nextGainEnergyTime;
 
     void Start()
     {
         energy = initialEnergy;
+        GameManager.instance = this;
         nextGainEnergyTime = NextGainEnergyTime();
     }
 
@@ -66,4 +68,16 @@ public class GameManager : MonoBehaviour
         return DateTime.Now.AddSeconds(energyCooldown);
     }
 
+    public bool UseEnergy(float energy)
+    {
+        if (this.energy < energy)
+            return false;
+        this.energy -= energy;
+        return true;
+    }
+    
+    static public GameManager GetInstance()
+    {
+        return GameManager.instance;
+    }
 }

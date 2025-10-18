@@ -24,10 +24,18 @@ public class TurretCardBehaiviour : MonoBehaviour
         foreach (TurretCardElement turretCard in turretCardList)
             turretCard.UnregisterCallback<MouseDownEvent, TurretCardElement>(OnDragStart);
     }
-    
+
+    void Update()
+    {
+        foreach (TurretCardElement turretCard in turretCardList)
+            turretCard.Update();
+    }
+
     void OnDragStart(MouseDownEvent evt, TurretCardElement elm)
     {
         if (evt.propagationPhase != PropagationPhase.BubbleUp)
+            return;
+        if (elm.isEnabled == false)
             return;
         Vector3 mousePosition = Input.mousePosition;
         Vector3 target = Camera.main.ScreenToWorldPoint(mousePosition);

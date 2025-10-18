@@ -63,5 +63,7 @@ public class DraggingTurret : MonoBehaviour
         if (targetReceiver == null)
             return;
         targetReceiver.SetTurret(this);
+        if (spec != null)
+            GameManager.GetInstance()?.UseEnergy(spec.cost);
     }
 }
