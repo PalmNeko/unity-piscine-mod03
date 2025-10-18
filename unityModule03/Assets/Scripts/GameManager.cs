@@ -1,10 +1,23 @@
 using UnityEngine;
+using System;
 
 [SelectionBase]
 public class GameManager : MonoBehaviour
 {
     public BaseController baseController;
+    public float initialEnergy = 0f;
+    public float gainEnergy = 1f;
+    public float energyCooldown = 1f;
     public UIManager ui;
+
+    private float energy;
+    private DateTime nextGainEnergyTime;
+
+    void Start()
+    {
+        energy = initialEnergy;
+        nextGainEnergyTime = NextGainEnergyTime();
+    }
 
     void OnEnable()
     {
@@ -31,6 +44,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (DateTime.Now > nextGainEnergyTime)
+        {
+            energy += gainEnergy;
+            nextGainEnergyTime = NextGainEnergyTime();
+        }
         UpdateGUI();
     }
 
@@ -39,6 +57,13 @@ public class GameManager : MonoBehaviour
         if (baseController != null)
         {
             ui.SetHP(baseController.HP.HP, baseController.HP.maxHP);
+            ui.SetEnergy(energy);
         }
     }
+
+    private DateTime NextGainEnergyTime()
+    {
+        return DateTime.Now.AddSeconds(energyCooldown);
+    }
+
 }
