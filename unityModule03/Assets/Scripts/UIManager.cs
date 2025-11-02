@@ -5,6 +5,7 @@ public class UIManager
 {
     public HPBar hpBar;
     public EnergyUI energyElement;
+    public PauseMenu pauseMenu;
 
     public void SetHP(float hp, float maxHP)
     {

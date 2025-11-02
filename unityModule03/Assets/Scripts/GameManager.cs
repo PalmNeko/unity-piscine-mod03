@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public UIManager ui;
 
     public float energy;
-    private DateTime nextGainEnergyTime;
+    private float nextGainEnergyTime;
 
     void Start()
     {
@@ -44,28 +44,36 @@ public class GameManager : MonoBehaviour
             Destroy(enemyController.gameObject);
     }
 
-    void Update()
-    {
-        if (DateTime.Now > nextGainEnergyTime)
-        {
-            energy += gainEnergy;
-            nextGainEnergyTime = NextGainEnergyTime();
-        }
-        UpdateGUI();
-    }
-
-    private void UpdateGUI()
+    void FixedUpdate()
     {
         if (baseController != null)
         {
             ui.SetHP(baseController.HP.HP, baseController.HP.maxHP);
             ui.SetEnergy(energy);
         }
+        if (Time.time > nextGainEnergyTime)
+        {
+            energy += gainEnergy;
+            nextGainEnergyTime = NextGainEnergyTime();
+        }
+    }
+    
+    void Update()
+    {
+        if (Input.GetKey("escape"))
+        {
+			ui.pauseMenu.Enable();
+        }
+        UpdateGUI();
     }
 
-    private DateTime NextGainEnergyTime()
+    private void UpdateGUI()
     {
-        return DateTime.Now.AddSeconds(energyCooldown);
+    }
+
+    private float NextGainEnergyTime()
+    {
+        return Time.time + energyCooldown;
     }
 
     public bool UseEnergy(float energy)

@@ -14,7 +14,7 @@ public class TurretController : MonoBehaviour
 
     private Attacker attacker;
     private List<EnemyController> shotRangeEnemies;
-    private DateTime nextShotDateTime;
+    private float nextShotTime;
 
     void OnValidate()
     {
@@ -38,7 +38,7 @@ public class TurretController : MonoBehaviour
     void Start()
     {
         AssignObject();
-        nextShotDateTime = GetNextShotDateTime();
+        nextShotTime = GetNextShotTime();
         shotRangeEnemies = new List<EnemyController>();
     }
 
@@ -48,7 +48,7 @@ public class TurretController : MonoBehaviour
         if (CanShot())
         {
             Shot();
-            nextShotDateTime = GetNextShotDateTime();
+            nextShotTime = GetNextShotTime();
         }
     }
 
@@ -95,17 +95,16 @@ public class TurretController : MonoBehaviour
         return closestEnemy;
     }
 
-    DateTime GetNextShotDateTime()
+    float GetNextShotTime()
     {
-        return DateTime.Now.AddSeconds(spec.cooldown);
+        return Time.time + spec.cooldown;
     }
 
     bool CanShot()
     {
-        // Debug.Log($"{shotRangeEnemies} {shotRangeEnemies.Count} {DateTime.Now > nextShotDateTime}");
         return shotRangeEnemies != null
             && shotRangeEnemies.Count > 0
-            && DateTime.Now > nextShotDateTime;
+            && Time.time > nextShotTime;
     }
     
     void Shot()

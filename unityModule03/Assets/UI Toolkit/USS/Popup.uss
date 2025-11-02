@@ -1,0 +1,27 @@
+.root {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0.12);
+}
+
+.window {
+    width: 50%;
+    height: 50%;
+    margin-top: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    min-width: 300px;
+    min-height: 200px;
+    max-width: 600px;
+    max-height: 400px;
+    background-color: rgb(79, 79, 79);
+}
+
+.message {
+    -unity-text-align: middle-center;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+    font-size: 16px;
+    color: rgb(247, 247, 247);
+    -unity-font-style: bold;
+}

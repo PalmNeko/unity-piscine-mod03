@@ -10,21 +10,21 @@ public class EnemySpawnerController : MonoBehaviour
 	public BaseController target;
 	public float spawnDelay = 1;
 
-	private DateTime nextSpawn;
+	private float nextSpawn;
 	private bool canSpawn = true;
 	
 	void Start()
 	{
-		nextSpawn = GetNextSpawnDateTime();
+		nextSpawn = GetNextSpawnTime();
 		canSpawn = true;
 	}
 	
-	void Update()
+	void FixedUpdate()
 	{
-		if (DateTime.Now > nextSpawn)
+		if (Time.time > nextSpawn)
 		{
 			SpawnEnemy(enemy);
-			nextSpawn = GetNextSpawnDateTime();
+			nextSpawn = GetNextSpawnTime();
 		}
 	}
 
@@ -41,8 +41,8 @@ public class EnemySpawnerController : MonoBehaviour
 		newEnemy.Initialize(target);
 	}
 
-	private DateTime GetNextSpawnDateTime()
+	private float GetNextSpawnTime()
 	{
-		return DateTime.Now.AddSeconds(spawnDelay);
+		return Time.time + spawnDelay;
 	}
 }

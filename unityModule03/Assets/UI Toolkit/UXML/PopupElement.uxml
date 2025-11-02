@@ -1,0 +1,16 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/USS/Popup.uss?fileID=7433441132597879392&amp;guid=9aac9e7edc67e3acc8e5d3a9bc323ed9&amp;type=3#Popup" />
+    <ui:VisualElement name="root" class="root">
+        <ui:VisualElement name="window" class="window" style="align-items: center;">
+            <ui:VisualElement style="flex-grow: 1; justify-content: center;">
+                <ui:Label text="This is Message!!!" name="Message" class="message" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-grow: 1; width: 30%; align-items: center; justify-content: space-evenly; align-self: center;">
+                <ui:VisualElement style="flex-grow: 1; justify-content: space-evenly; align-items: center;">
+                    <ui:Button text="OK" name="OK" />
+                    <ui:Button text="Cancel" name="Cancel" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
