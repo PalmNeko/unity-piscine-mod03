@@ -614,6 +614,17 @@ Transform:
   - {fileID: 728103421}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &473838661 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2309204601634462978, guid: 4c0271984372807a8bda49f880707222, type: 3}
+  m_PrefabInstance: {fileID: 8328281975256437463}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d6216f5f1b84166f8c6748016da6f8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &475408914
 GameObject:
   m_ObjectHideFlags: 0
@@ -5013,6 +5024,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 294189946884612986, guid: ada88d1d3721b914d9c6aa94f0631fdc, type: 3}
+      propertyPath: spawner
+      value: 
+      objectReference: {fileID: 473838661}
+    - target: {fileID: 294189946884612986, guid: ada88d1d3721b914d9c6aa94f0631fdc, type: 3}
       propertyPath: ui.hpBar
       value: 
       objectReference: {fileID: 687866130}
@@ -5028,6 +5043,18 @@ PrefabInstance:
       propertyPath: ui.energyElement
       value: 
       objectReference: {fileID: 687866133}
+    - target: {fileID: 294189946884612986, guid: ada88d1d3721b914d9c6aa94f0631fdc, type: 3}
+      propertyPath: waves.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 294189946884612986, guid: ada88d1d3721b914d9c6aa94f0631fdc, type: 3}
+      propertyPath: 'waves.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 00911dca4367880b597cb79daf891a51, type: 2}
+    - target: {fileID: 294189946884612986, guid: ada88d1d3721b914d9c6aa94f0631fdc, type: 3}
+      propertyPath: 'waves.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 6221f1407c7fbe3b38d74d1cc88e5efa, type: 2}
     - target: {fileID: 603621100952756904, guid: ada88d1d3721b914d9c6aa94f0631fdc, type: 3}
       propertyPath: m_Name
       value: GameManager

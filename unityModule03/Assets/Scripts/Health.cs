@@ -13,6 +13,11 @@ public class Health
     [ReadOnly]
     public UnityEvent<Health, Attacker> onTakeDamage;
 
+    public void ResetHP()
+    {
+        HP = maxHP;
+    }
+    
     public void TakeDamage(Attacker attacker)
     {
         if (HP == 0)

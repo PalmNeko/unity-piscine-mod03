@@ -1,5 +1,8 @@
 using UnityEngine;
 using System;
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+using System.Linq;
 
 [SelectionBase]
 public class GameManager : MonoBehaviour
@@ -10,15 +13,29 @@ public class GameManager : MonoBehaviour
     public float gainEnergy = 1f;
     public float energyCooldown = 1f;
     public UIManager ui;
+    public SpawnSpec[] waves;
+    public EnemySpawnerController spawner;
+    public float score;
 
     public float energy;
     private float nextGainEnergyTime;
+    private int waveIndex = 0;
+    private Dictionary<int, float> scores = new Dictionary<int, float>();
+
+    void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        GameManager.instance = this;
+    }
 
     void Start()
     {
-        energy = initialEnergy;
         GameManager.instance = this;
-        nextGainEnergyTime = NextGainEnergyTime();
+        Play();
     }
 
     void OnEnable()
@@ -35,13 +52,17 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("GameOver");
         // スポーンのストップ
-        EnemySpawnerController[] spawnControllers = GameObject.FindObjectsByType<EnemySpawnerController>(FindObjectsSortMode.None);
-        foreach (EnemySpawnerController spawnController in spawnControllers)
-            spawnController.StopSpawn();
+        spawner.StopSpawn();
         // エネミーの削除
         EnemyController[] enemyControllers = GameObject.FindObjectsByType<EnemyController>(FindObjectsSortMode.None);
         foreach (EnemyController enemyController in enemyControllers)
             Destroy(enemyController.gameObject);
+        ShowScore();
+    }
+
+    public void WaveClear()
+    {
+        ShowScore();
     }
 
     void FixedUpdate()
@@ -56,17 +77,40 @@ public class GameManager : MonoBehaviour
             energy += gainEnergy;
             nextGainEnergyTime = NextGainEnergyTime();
         }
+        if (IsWaveClear())
+        {
+            ShowScore();
+        }
     }
-    
+    void ShowScore()
+    {
+        Time.timeScale = 0.0f;
+        CalcScore();
+        SceneManager.LoadScene("Score", LoadSceneMode.Additive);
+    }
+
     void Update()
     {
         if (Input.GetKey("escape"))
         {
-			ui.pauseMenu.Enable();
+            ui.pauseMenu.Enable();
         }
         UpdateGUI();
     }
 
+    private bool IsWaveClear()
+    {
+        if (spawner.IsEndSpawn() && IsClearAllEnemies())
+            return true;
+        return false;
+    }
+
+    private bool IsClearAllEnemies()
+    {
+        EnemyController[] enemyControllers = GameObject.FindObjectsByType<EnemyController>(FindObjectsSortMode.None);
+        return enemyControllers.Length == 0;
+    }
+    
     private void UpdateGUI()
     {
     }
@@ -82,6 +126,43 @@ public class GameManager : MonoBehaviour
             return false;
         this.energy -= energy;
         return true;
+    }
+
+    public float CalcScore()
+    {
+        score = 0.0f;
+
+        scores[waveIndex] = energy + baseController.HP.HP;
+        score = scores.Sum(x => x.Value);
+        return score;
+    }
+    
+    public void NextWave()
+    {
+        waveIndex += 1;
+        Play();
+        return;
+    }
+
+    public void Replay()
+    {
+        Play();
+    }
+
+    public void Play()
+    {
+        Time.timeScale = 1.0f;
+        energy = initialEnergy;
+        baseController.HP.ResetHP();
+        if (waveIndex >= waves.Length)
+            ToEnding();
+        else
+            spawner.NextWave(waves[waveIndex]);
+    }
+
+    private void ToEnding()
+    {
+        SceneManager.LoadScene("Ending");
     }
     
     static public GameManager GetInstance()
