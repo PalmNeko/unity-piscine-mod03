@@ -1,3 +1,3 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <PopupElement uxml="project://database/Assets/UI%20Toolkit/UXML/PopupElement.uxml?fileID=9197481963319205126&amp;guid=a2c412166fe7add7288a86b57bd0e07a&amp;type=3#PopupElement" message="Pause Menu" ok-text="Resume" cancel-text="Quit" />
+    <PopupElement uxml="project://database/Assets/UI%20Toolkit/UXML/PopupElement.uxml?fileID=9197481963319205126&amp;guid=a2c412166fe7add7288a86b57bd0e07a&amp;type=3#PopupElement" message="pause menu" ok-text="Resume" cancel-text="Quit" />
 </ui:UXML>
