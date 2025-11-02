@@ -1,8 +1,11 @@
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class ConfirmMenu : MonoBehaviour
 {
+    public string redirectSceneName;
+
     private Button yesButton;
     private Button noButton;
 
@@ -29,7 +32,7 @@ public class ConfirmMenu : MonoBehaviour
 
     private void OnYes(ClickEvent evt)
     {
-        GameController.QuitGame();
+        SceneManager.LoadScene(redirectSceneName);
     }
     
     private void OnNo(ClickEvent evt)
