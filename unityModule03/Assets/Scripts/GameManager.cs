@@ -100,6 +100,8 @@ public class GameManager : MonoBehaviour
 
     private bool IsWaveClear()
     {
+        if (Mathf.Approximately(Time.timeScale, 0.0f))
+            return false;
         if (spawner.IsEndSpawn() && IsClearAllEnemies())
             return true;
         return false;
